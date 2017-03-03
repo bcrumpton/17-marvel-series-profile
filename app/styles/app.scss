@@ -1,6 +1,60 @@
 // @import 'yoga';
 // @import 'normalize';
 
-// $fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
-// @import 'font-awesome';
+$c-white: #fff;
+$c-nav-bckgrnd: rgb(45, 62, 81);
+$c-test: rgb(250, 128, 114);
+
+$fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
+@import 'font-awesome';
 @import 'box-sizing';
+@import 'reset';
+
+.app {
+  font-family: 'Lato', sans-serif;
+}
+
+.top-nav {
+  padding: 0 4rem;
+  display: flex;
+  color: $c-white;
+  background: $c-nav-bckgrnd;
+}
+
+.section {
+  padding: 2rem 0;
+  display: flex;
+}
+
+.container {
+  max-width: 65rem;
+  margin: 0 auto;
+  display: flex;
+}
+
+.sidebar {
+  margin: 1rem;
+}
+
+.main-content {
+  flex-basis: calc(75%);
+  margin: 1rem;
+}
+
+.grid {
+  display: flex;
+
+  &-item {
+    margin: 1rem;
+  }
+}
+
+.main {
+  display: flex;
+}
+
+.comics {
+  &-btn {
+
+  }
+}
