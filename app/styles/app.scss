@@ -4,6 +4,7 @@
 $c-white: #fff;
 $c-nav-bckgrnd: rgb(45, 62, 81);
 $c-test: rgb(250, 128, 114);
+$c-button-bckgrnd: rgb(45, 62, 81);
 
 $fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
 @import 'font-awesome';
@@ -55,6 +56,12 @@ $fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
 
 .comics {
   &-btn {
-
+    background: $c-nav-bckgrnd;
+    color: $c-white;
+    border: 0;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.7rem;
+    width: 100%;
   }
 }
