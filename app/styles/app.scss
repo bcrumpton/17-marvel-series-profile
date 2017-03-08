@@ -16,7 +16,7 @@ $fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
 }
 
 .top-nav {
-  padding: 0 4rem;
+  padding: 0 8.5rem;
   display: flex;
   color: $c-white;
   background: $c-nav-bckgrnd;
@@ -63,5 +63,35 @@ $fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
     padding: 0.5rem 1rem;
     font-size: 0.7rem;
     width: 100%;
+  }
+}
+
+.open_modal {
+  position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+  display: none;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+
+  &--close {
+    display: flex;
+    justify-content: flex-end;
+    text-decoration: none;
+  }
+
+  > div {
+    width: 400px;
+  	position: relative;
+  	margin: 10% auto;
+  	padding: 5px 20px 13px 20px;
+  	border-radius: 10px;
+  	background: #fff;
   }
 }

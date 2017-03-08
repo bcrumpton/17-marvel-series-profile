@@ -20,6 +20,7 @@
               <li class="sidebar__creators--item">Creator Name Here</li>
             </ul>
           </div>
+
           <div class="main-content">
             <div class="character">
               <h2 class="character-heading">Characters</h2>
@@ -51,25 +52,25 @@
                   <img src="https://i.annihil.us/u/prod/marvel/i/mg/5/a0/537bc7036ab02/standard_xlarge.jpg" alt="">
                   <h3 class="comics-number">#7</h3>
                   <h5 class="grid-item__name">Thor</h5>
-                  <button class="comics-btn">Read More</button>
+                  <button v-on:click="modal" class="comics-btn">Read More</button>
                 </div>
                 <div class="grid-item">
                   <img src="https://i.annihil.us/u/prod/marvel/i/mg/5/a0/537bc7036ab02/standard_xlarge.jpg" alt="">
                   <h3 class="comics-number">#7</h3>
                   <h5 class="grid-item__name">Thor</h5>
-                  <button class="comics-btn">Read More</button>
+                  <button v-on:click="modal" class="comics-btn">Read More</button>
                 </div>
                 <div class="grid-item">
                   <img src="https://i.annihil.us/u/prod/marvel/i/mg/5/a0/537bc7036ab02/standard_xlarge.jpg" alt="">
                   <h3 class="comics-number">#7</h3>
                   <h5 class="grid-item__name">Thor</h5>
-                  <button class="comics-btn">Read More</button>
+                  <button v-on:click="modal" class="comics-btn">Read More</button>
                 </div>
                 <div class="grid-item">
                   <img src="https://i.annihil.us/u/prod/marvel/i/mg/5/a0/537bc7036ab02/standard_xlarge.jpg" alt="">
                   <h3 class="comics-number">#7</h3>
                   <h5 class="grid-item__name">Thor</h5>
-                  <button class="comics-btn">Read More</button>
+                  <button v-on:click="modal" class="comics-btn">Read More</button>
                 </div>
               </div>
             </div>
@@ -77,6 +78,15 @@
         </div>
       </div>
     </div>
+
+    <div class="open_modal">
+      <div class="modal">
+        <button v-on:click="close" href="#close" class="modal__close">Close</button>
+        <h2 class="modal__heading">Thor</h2>
+        <p class="modal__description">Now, when you do this without getting punched in the chest, you'll have more fun. Well, what do you expect, mother? Say goodbye to these, because it's the last time! Bad news. Andy Griffith turned us down. He didn't like his trailer.</p>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -88,7 +98,14 @@ export default {
   },
 
   methods: {
+    modal() {
+      document.querySelector('.open_modal').style.display = 'block';
+    },
 
+    close() {
+      document.querySelector('.open_modal .modal').style.display = 'none';
+      document.querySelector('.open_modal').style.background = 'rgba(0, 0, 0, 0)';
+    },
   },
 };
 </script>
