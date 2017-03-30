@@ -7,71 +7,34 @@
       <div class="container">
         <div class="main">
           <div class="sidebar">
-            <img class="sidebar__img" src="http://vignette4.wikia.nocookie.net/powerrangers/images/6/6e/Black_Dragon_True_Form.jpg/revision/latest?cb=20161130192633" alt="">
-            <h1 class="sidebar__title">Mysterious Ranger</h1>
-            <h3 class="sidebar__year">2017</h3>
+            <div class='box'>
+              <div clas='content'>
+                <img class="sidebar__img" v-bind:src="`${seriesInfo.thumbnail.path}.${seriesInfo.thumbnail.extension}`" alt="">
+              </div>
+            </div>
+            <h1 class="sidebar__title">{{seriesInfo.title}}</h1>
+            <h3 class="sidebar__year">{{seriesInfo.startYear}}</h3>
             <h4 class="sidebar__creators">Creators</h4>
             <hr/>
             <ul>
-              <li class="sidebar__creators--item">Creator Name Here</li>
-              <li class="sidebar__creators--item">Creator Name Here</li>
-              <li class="sidebar__creators--item">Creator Name Here</li>
-              <li class="sidebar__creators--item">Creator Name Here</li>
-              <li class="sidebar__creators--item">Creator Name Here</li>
+              <li class="sidebar__creators--item" v-for="x in seriesInfo.creators.items">{{ x.name }}</li>
             </ul>
           </div>
 
           <div class="main-content">
-            <div class="character">
-              <h2 class="character-heading">Characters</h2>
+            <div class="main-content__item">
+              <h2 class="main-content__heading">Characters</h2>
               <hr/>
-              <div class="grid">
-                <div class="grid-item">
-                  <img src="https://i.annihil.us/u/prod/marvel/i/mg/5/a0/537bc7036ab02/standard_xlarge.jpg" alt="">
-                  <h4 class="grid-item__name">Thor</h4>
-                </div>
-                <div class="grid-item">
-                  <img src="https://i.annihil.us/u/prod/marvel/i/mg/5/a0/537bc7036ab02/standard_xlarge.jpg" alt="">
-                  <h4 class="grid-item__name">Thor</h4>
-                </div>
-                <div class="grid-item">
-                  <img src="https://i.annihil.us/u/prod/marvel/i/mg/5/a0/537bc7036ab02/standard_xlarge.jpg" alt="">
-                  <h4 class="grid-item__name">Thor</h4>
-                </div>
-                <div class="grid-item">
-                  <img src="https://i.annihil.us/u/prod/marvel/i/mg/5/a0/537bc7036ab02/standard_xlarge.jpg" alt="">
-                  <h4 class="grid-item__name">Thor</h4>
-                </div>
+
+              <div class="character">
+                <character-item v-for="character in characterData" v-bind:character="character"></character-item>
               </div>
             </div>
-            <div class="comics">
-              <h2 class="comics-heading">Comics</h2>
+            <div class="main-content__item">
+              <h2 class="main-content__heading">Comics</h2>
               <hr/>
-              <div class="grid">
-                <div class="grid-item">
-                  <img src="https://i.annihil.us/u/prod/marvel/i/mg/5/a0/537bc7036ab02/standard_xlarge.jpg" alt="">
-                  <h3 class="comics-number">#7</h3>
-                  <h5 class="grid-item__name">Thor</h5>
-                  <button v-on:click="modal" class="comics-btn">Read More</button>
-                </div>
-                <div class="grid-item">
-                  <img src="https://i.annihil.us/u/prod/marvel/i/mg/5/a0/537bc7036ab02/standard_xlarge.jpg" alt="">
-                  <h3 class="comics-number">#7</h3>
-                  <h5 class="grid-item__name">Thor</h5>
-                  <button v-on:click="modal" class="comics-btn">Read More</button>
-                </div>
-                <div class="grid-item">
-                  <img src="https://i.annihil.us/u/prod/marvel/i/mg/5/a0/537bc7036ab02/standard_xlarge.jpg" alt="">
-                  <h3 class="comics-number">#7</h3>
-                  <h5 class="grid-item__name">Thor</h5>
-                  <button v-on:click="modal" class="comics-btn">Read More</button>
-                </div>
-                <div class="grid-item">
-                  <img src="https://i.annihil.us/u/prod/marvel/i/mg/5/a0/537bc7036ab02/standard_xlarge.jpg" alt="">
-                  <h3 class="comics-number">#7</h3>
-                  <h5 class="grid-item__name">Thor</h5>
-                  <button v-on:click="modal" class="comics-btn">Read More</button>
-                </div>
+              <div class="character">
+                <comic-item v-for="comic in comicData" v-bind:comic="comic"></comic-item>
               </div>
             </div>
           </div>
@@ -86,15 +49,32 @@
         <p class="modal__description">Now, when you do this without getting punched in the chest, you'll have more fun. Well, what do you expect, mother? Say goodbye to these, because it's the last time! Bad news. Andy Griffith turned us down. He didn't like his trailer.</p>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
+import store from '../store';
+import { seriesInfoSearch } from '../actions';
+import CharacterItem from './character-item.vue';
+import ComicItem from './comic-item.vue';
+
 export default {
+  components: {
+    CharacterItem,
+    ComicItem,
+  },
+
   data() {
     return {
+      seriesInfo: this.$select('seriesInfo'),
+      characterData: this.$select('characterData'),
+      comicData: this.$select('comicData'),
+      modal: this.$select('modal'),
     };
+  },
+
+  mounted() {
+    store.dispatch(seriesInfoSearch('Deadpool'));
   },
 
   methods: {

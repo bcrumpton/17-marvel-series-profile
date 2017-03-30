@@ -33,12 +33,16 @@ $fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
   display: flex;
 }
 
+.main {
+  display: flex;
+}
+
 .sidebar {
   margin: 1rem;
+  width: calc(60%);
 }
 
 .main-content {
-  flex-basis: calc(75%);
   margin: 1rem;
 }
 
@@ -48,10 +52,6 @@ $fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
   &-item {
     margin: 1rem;
   }
-}
-
-.main {
-  display: flex;
 }
 
 .comics {
@@ -93,5 +93,19 @@ $fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
   	padding: 5px 20px 13px 20px;
   	border-radius: 10px;
   	background: #fff;
+  }
+}
+
+.character {
+  display: flex;
+  flex-wrap: wrap;
+
+  &-item {
+    padding: 1rem;
+
+    img {
+      height: 10rem;
+      width: auto;
+    }
   }
 }
