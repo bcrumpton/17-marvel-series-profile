@@ -1,20 +1,15 @@
 <template lang="html">
   <div class="app">
     <nav class="top-nav">
-      <h1>Marvel</h1>
+      <img class="logo" src="http://2.bp.blogspot.com/-CfcNNFkQgKg/VVA2-IZrYMI/AAAAAAAACW4/2UKFilGssf0/s1600/Marvel-comics-logo-vector.png" alt="">
     </nav>
     <div class="section">
       <div class="container">
         <div class="main">
           <div class="sidebar">
-            <div class='box'>
-              <div clas='content'>
-                <img class="sidebar__img" v-bind:src="`${seriesInfo.thumbnail.path}.${seriesInfo.thumbnail.extension}`" alt="">
-              </div>
-            </div>
+            <img class="sidebar__img" v-bind:src="`${seriesInfo.thumbnail.path}.${seriesInfo.thumbnail.extension}`" alt="">
             <h1 class="sidebar__title">{{seriesInfo.title}}</h1>
-            <h3 class="sidebar__year">{{seriesInfo.startYear}}</h3>
-            <h4 class="sidebar__creators">Creators</h4>
+            <h2 class="sidebar__creators">Creators</h2>
             <hr/>
             <ul>
               <li class="sidebar__creators--item" v-for="x in seriesInfo.creators.items">{{ x.name }}</li>
@@ -42,13 +37,7 @@
       </div>
     </div>
 
-    <div class="open_modal">
-      <div class="modal">
-        <button v-on:click="close" href="#close" class="modal__close">Close</button>
-        <h2 class="modal__heading">Thor</h2>
-        <p class="modal__description">Now, when you do this without getting punched in the chest, you'll have more fun. Well, what do you expect, mother? Say goodbye to these, because it's the last time! Bad news. Andy Griffith turned us down. He didn't like his trailer.</p>
-      </div>
-    </div>
+    <modal></modal>
   </div>
 </template>
 
@@ -57,11 +46,13 @@ import store from '../store';
 import { seriesInfoSearch } from '../actions';
 import CharacterItem from './character-item.vue';
 import ComicItem from './comic-item.vue';
+import Modal from './modal.vue';
 
 export default {
   components: {
     CharacterItem,
     ComicItem,
+    Modal,
   },
 
   data() {
@@ -69,7 +60,7 @@ export default {
       seriesInfo: this.$select('seriesInfo'),
       characterData: this.$select('characterData'),
       comicData: this.$select('comicData'),
-      modal: this.$select('modal'),
+      modal: true,
     };
   },
 
@@ -78,14 +69,7 @@ export default {
   },
 
   methods: {
-    modal() {
-      document.querySelector('.open_modal').style.display = 'block';
-    },
 
-    close() {
-      document.querySelector('.open_modal .modal').style.display = 'none';
-      document.querySelector('.open_modal').style.background = 'rgba(0, 0, 0, 0)';
-    },
   },
 };
 </script>

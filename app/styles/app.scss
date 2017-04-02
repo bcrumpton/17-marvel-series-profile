@@ -2,110 +2,21 @@
 // @import 'normalize';
 
 $c-white: #fff;
-$c-nav-bckgrnd: rgb(45, 62, 81);
+$c-nav-bckgrnd: rgb(237, 26, 35);
 $c-test: rgb(250, 128, 114);
 $c-button-bckgrnd: rgb(45, 62, 81);
+$c-transparent-black: rgba(0, 0, 0, 0.5);
 
 $fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
 @import 'font-awesome';
 @import 'box-sizing';
 @import 'reset';
+@import 'img';
+@import 'nav';
+@import 'layout';
+@import 'modal';
+
 
 .app {
   font-family: 'Lato', sans-serif;
-}
-
-.top-nav {
-  padding: 0 8.5rem;
-  display: flex;
-  color: $c-white;
-  background: $c-nav-bckgrnd;
-}
-
-.section {
-  padding: 2rem 0;
-  display: flex;
-}
-
-.container {
-  max-width: 65rem;
-  margin: 0 auto;
-  display: flex;
-}
-
-.main {
-  display: flex;
-}
-
-.sidebar {
-  margin: 1rem;
-  width: calc(60%);
-}
-
-.main-content {
-  margin: 1rem;
-}
-
-.grid {
-  display: flex;
-
-  &-item {
-    margin: 1rem;
-  }
-}
-
-.comics {
-  &-btn {
-    background: $c-nav-bckgrnd;
-    color: $c-white;
-    border: 0;
-    border-radius: 0.5rem;
-    padding: 0.5rem 1rem;
-    font-size: 0.7rem;
-    width: 100%;
-  }
-}
-
-.open_modal {
-  position: fixed;
-	font-family: Arial, Helvetica, sans-serif;
-  display: none;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	background: rgba(0,0,0,0.8);
-	z-index: 99999;
-	-webkit-transition: opacity 400ms ease-in;
-	-moz-transition: opacity 400ms ease-in;
-	transition: opacity 400ms ease-in;
-
-  &--close {
-    display: flex;
-    justify-content: flex-end;
-    text-decoration: none;
-  }
-
-  > div {
-    width: 400px;
-  	position: relative;
-  	margin: 10% auto;
-  	padding: 5px 20px 13px 20px;
-  	border-radius: 10px;
-  	background: #fff;
-  }
-}
-
-.character {
-  display: flex;
-  flex-wrap: wrap;
-
-  &-item {
-    padding: 1rem;
-
-    img {
-      height: 10rem;
-      width: auto;
-    }
-  }
 }
