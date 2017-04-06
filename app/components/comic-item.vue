@@ -9,7 +9,7 @@
     </div>
     <h3 class="comics-number">#{{ comic.issueNumber }}</h3>
     <h5 class="character-item__name">{{ comic.title }}</h5>
-    <button id="show-modal" @click="showModal = true" class="comics-btn">Read More</button>
+    <button id="show-modal" @click="modal = true" class="comics-btn">Read More</button>
   </div>
 </template>
 
@@ -20,11 +20,8 @@ export default {
     return {
     };
   },
-
   methods: {
-    modal() {
-      document.querySelector('.open_modal').style.display = 'block';
-    }
+
   },
 };
 </script>

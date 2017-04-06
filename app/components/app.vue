@@ -37,7 +37,7 @@
       </div>
     </div>
 
-    <modal></modal>
+    <modal v-bind:comic="comic" v-if="modal"></modal>
   </div>
 </template>
 
@@ -60,16 +60,15 @@ export default {
       seriesInfo: this.$select('seriesInfo'),
       characterData: this.$select('characterData'),
       comicData: this.$select('comicData'),
-      modal: true,
+      modal: false,
     };
   },
 
   mounted() {
-    store.dispatch(seriesInfoSearch('Deadpool'));
+    store.dispatch(seriesInfoSearch('Spider Man'));
   },
 
   methods: {
-
   },
 };
 </script>
