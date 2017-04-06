@@ -1,0 +1,13 @@
+// Sass stylings for nav
+
+.logo {
+  height: 5rem;
+  width: auto;
+}
+
+.top-nav {
+  padding: 0 8.5rem;
+  display: flex;
+  color: $c-white;
+  background: $c-nav-bckgrnd;
+}

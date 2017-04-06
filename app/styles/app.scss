@@ -1,6 +1,22 @@
 // @import 'yoga';
 // @import 'normalize';
 
-// $fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
-// @import 'font-awesome';
+$c-white: #fff;
+$c-nav-bckgrnd: rgb(237, 26, 35);
+$c-test: rgb(250, 128, 114);
+$c-button-bckgrnd: rgb(45, 62, 81);
+$c-transparent-black: rgba(0, 0, 0, 0.5);
+
+$fa-font-path: '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts';
+@import 'font-awesome';
 @import 'box-sizing';
+@import 'reset';
+@import 'img';
+@import 'nav';
+@import 'layout';
+@import 'modal';
+
+
+.app {
+  font-family: 'Lato', sans-serif;
+}
